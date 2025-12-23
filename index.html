@@ -7,872 +7,8 @@
     <meta name="description" content="Professional UX Designer Portfolio">
     <title>Pranay Kawle's Portfolio</title>
     <!-- style -->
-   <style>
-           :root {
-           --primary-bg-start: #FFFFFF;
-           --primary-bg-end: #FFE3E3;
-           --primary-text: #534040;
-           --primary-dark: #3D2626;
-           --primary-medium: #463737;
-           --primary-accent: #553636;
-           --transition: all 0.3s ease;
-       }
-
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
-
-       body {
-           font-family: 'Poppins', sans-serif;
-           color: var(--primary-text);
-           background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-           min-height: 100vh;
-           overflow-x: hidden;
-       }
-
-       /* Accessibility */
-       .skip-link {
-           position: absolute;
-           top: -40px;
-           left: 0;
-           background: var(--primary-dark);
-           color: white;
-           padding: 8px;
-           text-decoration: none;
-           z-index: 100;
-       }
-
-       .skip-link:focus {
-           top: 0;
-       }
-
-       /* Navigation */
-       .navbar {
-           background: rgba(255, 255, 255, 0.95);
-           backdrop-filter: blur(10px);
-           box-shadow: 0 2px 20px rgba(83, 64, 64, 0.1);
-           padding: 1rem 0;
-       }
-
-       .navbar-brand {
-           display: flex;
-           align-items: center;
-           transition: var(--transition);
-       }
-
-       .logo {
-           width: 50px;
-           height: 50px;
-           background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-           border-radius: 60px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           font-weight: 700;
-           color: var(--primary-dark);
-           font-size: 1.5rem;
-           transition: var(--transition);
-           box-shadow: 0 4px 15px rgba(85, 54, 54, 0.2);
-       }
-
-       .logo img {
-           width: 40px;
-           height: 40px;
-       }
-
-       .logo {
-           width: 50px;
-           /* adjust size */
-           transition: transform 1s ease;
-           /* 2 seconds for slow rotation */
-       }
-
-       .navbar-brand:hover .logo {
-           transform: rotate(360deg);
-       }
-
-       .navbar-nav {
-           margin: 0 auto;
-           display: flex;
-           flex-direction: row;
-       }
-
-       .nav-link {
-           color: var(--primary-text);
-           font-weight: 500;
-           margin: 0 1.5rem;
-           position: relative;
-           transition: var(--transition);
-       }
-
-       .nav-link::after {
-           content: '';
-           position: absolute;
-           bottom: -5px;
-           left: 0;
-           width: 0;
-           height: 2px;
-           background: var(--primary-accent);
-           transition: var(--transition);
-       }
-
-       .nav-link:hover,
-       .nav-link.active {
-           color: var(--primary-dark);
-       }
-
-       .nav-link:hover::after,
-       .nav-link.active::after {
-           width: 100%;
-       }
-
-       /* Mobile Navigation Carousel */
-       @media (max-width: 991px) {
-           .navbar-toggler {
-               display: none;
-           }
-
-           .navbar-collapse {
-               display: block !important;
-           }
-
-           .navbar-nav {
-               overflow-x: auto;
-               overflow-y: hidden;
-               white-space: nowrap;
-               -webkit-overflow-scrolling: touch;
-               scrollbar-width: none;
-               -ms-overflow-style: none;
-               padding: 0.5rem 0;
-           }
-
-           .navbar-nav::-webkit-scrollbar {
-               display: none;
-           }
-
-           .nav-link {
-               display: inline-block;
-               margin: 0 1rem;
-               font-size: 0.95rem;
-           }
-
-           .logo {
-               width: 40px;
-               height: 40px;
-               font-size: 1.2rem;
-           }
-       }
-
-       /* Hero Section */
-       .hero-section {
-           min-height: 90vh;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           text-align: center;
-           padding: 4rem 0;
-           opacity: 0;
-           transform: translateY(30px);
-           animation: fadeInUp 1s ease forwards;
-       }
-
-       @keyframes fadeInUp {
-           to {
-               opacity: 1;
-               transform: translateY(0);
-           }
-       }
-
-       .hero-name {
-           font-family: 'Playfair Display', serif;
-           font-size: 5rem;
-           font-weight: 700;
-           color: var(--primary-dark);
-           margin-bottom: 1rem;
-           line-height: 1.2;
-       }
-
-       .hero-title {
-           font-size: 1.8rem;
-           color: var(--primary-medium);
-           font-weight: 400;
-           margin-bottom: 2rem;
-       }
-
-       .hero-contact {
-           display: flex;
-           gap: 2rem;
-           justify-content: center;
-           flex-wrap: wrap;
-           font-size: 1rem;
-       }
-
-       .contact-item {
-           display: flex;
-           align-items: center;
-           gap: 0.5rem;
-           color: var(--primary-text);
-           text-decoration: none;
-           transition: var(--transition);
-           cursor: pointer;
-       }
-
-       .contact-item:hover {
-           color: var(--primary-dark);
-           transform: translateY(-2px);
-       }
-
-       .contact-item i {
-           color: var(--primary-accent);
-       }
-
-       /* Work Section */
-       .work-section {
-           padding: 5rem 0;
-       }
-
-       .section-title {
-           font-family: 'Playfair Display', serif;
-           font-size: 3rem;
-           color: var(--primary-dark);
-           text-align: center;
-           margin-bottom: 4rem;
-           opacity: 0;
-           transform: translateY(20px);
-       }
-
-       .section-title.visible {
-           animation: fadeInUp 0.8s ease forwards;
-       }
-
-       .work-card {
-           background: white;
-           border-radius: 20px;
-           overflow: hidden;
-           box-shadow: 0 10px 40px rgba(83, 64, 64, 0.15);
-           margin-bottom: 3rem;
-           transition: var(--transition);
-           opacity: 0;
-           transform: translateY(30px);
-       }
-
-       .work-card.visible {
-           animation: fadeInUp 0.8s ease forwards;
-       }
-
-       .work-card:hover {
-           transform: translateY(-10px);
-           box-shadow: 0 20px 60px rgba(83, 64, 64, 0.25);
-       }
-
-       .work-thumbnail {
-           position: relative;
-           width: 100%;
-           height: 400px;
-           overflow: hidden;
-           background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-           cursor: pointer;
-           text-decoration: none;
-           display: block;
-       }
-
-       .work-thumbnail img,
-       .work-thumbnail video {
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-           transition: var(--transition);
-       }
-
-       .work-card:hover .work-thumbnail img,
-       .work-card:hover .work-thumbnail video {
-           transform: scale(1.05);
-       }
-
-       .play-icon {
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-           width: 70px;
-           height: 70px;
-           background: rgba(255, 255, 255, 0.9);
-           border-radius: 50%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           color: var(--primary-dark);
-           font-size: 2rem;
-           transition: var(--transition);
-           pointer-events: none;
-       }
-
-       .work-card:hover .play-icon {
-           transform: translate(-50%, -50%) scale(1.1);
-           background: white;
-       }
-
-       .work-content {
-           padding: 2rem;
-           cursor: pointer;
-           text-decoration: none;
-           display: block;
-           color: inherit;
-           transition: var(--transition);
-       }
-
-       .work-content:hover {
-           background: rgba(255, 227, 227, 0.2);
-       }
-
-       .work-title {
-           font-size: 1.8rem;
-           font-weight: 600;
-           color: var(--primary-dark);
-           margin-bottom: 1rem;
-       }
-
-       .work-description {
-           color: var(--primary-text);
-           line-height: 1.8;
-           margin-bottom: 1.5rem;
-       }
-
-       .work-tags {
-           display: flex;
-           gap: 0.5rem;
-           flex-wrap: wrap;
-       }
-
-       .tag {
-           background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-           color: var(--primary-dark);
-           padding: 0.4rem 1rem;
-           border-radius: 20px;
-           font-size: 0.9rem;
-           font-weight: 500;
-       }
-
-       /* About Page */
-       .about-section {
-           padding: 5rem 0;
-           min-height: 80vh;
-       }
-
-       .about-content {
-           background: white;
-           border-radius: 20px;
-           padding: 3rem;
-           box-shadow: 0 10px 40px rgba(83, 64, 64, 0.15);
-           opacity: 0;
-           transform: translateY(30px);
-       }
-
-       .about-content.visible {
-           animation: fadeInUp 0.8s ease forwards;
-       }
-
-       .about-title {
-           font-family: 'Playfair Display', serif;
-           font-size: 2.5rem;
-           color: var(--primary-dark);
-           margin-bottom: 2rem;
-       }
-
-       .about-text {
-           color: var(--primary-text);
-           line-height: 1.8;
-           font-size: 1.1rem;
-           margin-bottom: 2rem;
-       }
-
-       .info-grid {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-           gap: 2rem;
-           margin-top: 3rem;
-       }
-
-       .info-item {
-           padding: 1.5rem;
-           background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-           border-radius: 15px;
-       }
-
-       .info-label {
-           font-weight: 600;
-           color: var(--primary-dark);
-           margin-bottom: 0.5rem;
-           font-size: 1.1rem;
-       }
-
-       .info-value {
-           color: var(--primary-text);
-           line-height: 1.6;
-       }
-
-       /* More Page */
-
-      .more-section {
-            padding: 8rem 0 5rem;
-        }
-        
-        /* .extra-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        } */
-        .extra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-        
-        .extra-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(83, 64, 64, 0.15);
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .extra-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(83, 64, 64, 0.25);
-        }
-        
-        .extra-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--primary-dark);
-            margin: 0 auto 1.5rem;
-        }
-        
-        .extra-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-        
-        .extra-description {
-            color: var(--primary-text);
-            line-height: 1.8;
-        }
-
-       /* Footer */
-       footer {
-           background: var(--primary-dark);
-           color: white;
-           padding: 2.5rem 0 1rem;
-           margin-top: 5rem;
-       }
-
-       .footer-content {
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           gap: 2rem;
-           flex-wrap: wrap;
-           padding-bottom: 1.5rem;
-           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-       }
-
-       .footer-name {
-           font-family: 'Playfair Display', serif;
-           font-size: 1.5rem;
-           margin-bottom: 0.5rem;
-           color: white;
-       }
-
-       .footer-left p {
-           color: rgba(255, 255, 255, 0.7);
-           font-size: 0.9rem;
-           margin: 0;
-       }
-
-       .footer-contact {
-           display: flex;
-           gap: 2rem;
-           align-items: center;
-           flex-wrap: wrap;
-       }
-
-       .footer-item {
-           display: flex;
-           align-items: center;
-           gap: 0.5rem;
-           color: rgba(255, 255, 255, 0.85);
-           font-size: 0.9rem;
-           transition: var(--transition);
-       }
-
-       .footer-item:hover {
-           color: white;
-       }
-
-       .footer-item i {
-           font-size: 1rem;
-       }
-
-       .social-links {
-           display: flex;
-           gap: 0.8rem;
-           align-items: center;
-       }
-
-       .social-link {
-           width: 36px;
-           height: 36px;
-           background: rgba(255, 255, 255, 0.1);
-           border-radius: 50%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           color: white;
-           font-size: 1.1rem;
-           transition: var(--transition);
-       }
-
-       .social-link:hover {
-           background: white;
-           color: var(--primary-dark);
-           transform: translateY(-2px);
-       }
-
-       .qr-section {
-           display: flex;
-           align-items: center;
-           gap: 1rem;
-       }
-
-       .qr-code {
-           width: 80px;
-           height: 80px;
-           background: white;
-           border-radius: 10px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           padding: 0.5rem;
-           flex-shrink: 0;
-       }
-       .qr-code img{
-        width: 70px;
-           height: 70px;
-       }
-
-       .qr-code i {
-           font-size: 3rem;
-           color: var(--primary-dark);
-       }
-
-       .qr-text {
-           font-size: 0.85rem;
-           color: rgba(255, 255, 255, 0.7);
-           line-height: 1.4;
-       }
-
-       .footer-bottom {
-           text-align: center;
-           padding-top: 1.5rem;
-           color: rgba(255, 255, 255, 0.6);
-           font-size: 0.85rem;
-       }
-
-       /* Page Transitions */
-       .page {
-           display: none;
-       }
-
-       .page.active {
-           display: block;
-       }
-
-       /* Responsive */
-       @media (max-width: 768px) {
-           .hero-name {
-               font-size: 3rem;
-           }
-
-           .hero-title {
-               font-size: 1.3rem;
-           }
-
-           .hero-contact {
-               flex-direction: column;
-               gap: 1rem;
-           }
-
-           .section-title {
-               font-size: 2rem;
-           }
-
-           .work-thumbnail {
-               height: 250px;
-           }
-
-           .nav-link {
-               margin: 0 0.8rem;
-               font-size: 0.9rem;
-           }
-
-           .footer-content {
-               flex-direction: column;
-               align-items: flex-start;
-               gap: 1.5rem;
-           }
-
-           .footer-contact {
-               flex-direction: column;
-               gap: 0.8rem;
-               align-items: flex-start;
-           }
-
-           .qr-section {
-               align-self: flex-start;
-           }
-       }
-
-       @media (max-width: 576px) {
-           .hero-name {
-               font-size: 2.5rem;
-           }
-
-           .nav-link {
-               margin: 0 0.6rem;
-               font-size: 0.85rem;
-           }
-       }
-
-       /* Scroll Animation */
-       .scroll-animate {
-           opacity: 0;
-           transform: translateY(30px);
-           transition: opacity 0.8s ease, transform 0.8s ease;
-       }
-
-       .scroll-animate.visible {
-           opacity: 1;
-           transform: translateY(0);
-       }
-      
-
- /* ==================== RESUME SECTION ==================== */
-        .resume-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .resume-btn {
-            padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(83, 64, 64, 0.3);
-        }
-        
-        .resume-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(83, 64, 64, 0.4);
-            color: white;
-        }
-        
-        .resume-btn i {
-            font-size: 1.2rem;
-        }
-        
-        .resume-viewer {
-            width: 100%;
-            height: 600px;
-            border: 2px solid rgba(83, 64, 64, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(83, 64, 64, 0.1);
-        }
-        
-        .resume-viewer iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .resume-placeholder {
-            width: 100%;
-            height: 600px;
-            background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .resume-placeholder i {
-            font-size: 4rem;
-            color: var(--primary-accent);
-            margin-bottom: 1rem;
-        }
-        
-        .resume-placeholder h3 {
-            color: var(--primary-dark);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .resume-placeholder p {
-            color: var(--primary-text);
-            margin-bottom: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .resume-viewer {
-                height: 500px;
-            }
-            
-            .resume-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .resume-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-        }
-      
-   </style>
-   <style>
-      /* ==================== PRELOADER ==================== */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .preloader-logo {
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, var(--primary-bg-start) 0%, var(--primary-bg-end) 100%);
-            border-radius: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 3rem;
-            box-shadow: 0 10px 40px rgba(83, 64, 64, 0.2);
-            animation: logoFloat 2s ease-in-out infinite;
-            margin-bottom: 2rem;
-            margin-top: 2rem;
-        }
-        
-        @keyframes logoFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
-        .preloader-text {
-            font-size: 2rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-            text-align: center;
-            animation: fadeInOut 2s ease-in-out infinite;
-        }
-        
-        .preloader-text span {
-            font-family: 'Playfair Display', serif;
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
-            color: var(--primary-medium);
-        }
-        
-        @keyframes fadeInOut {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-        
-        .preloader-spinner {
-            margin-top: 2rem;
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(83, 64, 64, 0.1);
-            border-top: 4px solid var(--primary-accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        
-        /* Hide main content initially */
-        body.loading {
-            overflow: hidden;
-        }
-        
-        body.loading .navbar,
-        body.loading main,
-        body.loading footer {
-            opacity: 0;
-        }
-   </style>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/preloader.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -885,13 +21,13 @@
 </head>
 
 <body>
-     <!-- Preloader -->
-    <div class="preloader">        
+    <!-- Preloader -->
+    <div class="preloader">
         <div class="preloader-text">
-            Welcome to           
-        </div>       
+            Welcome to
+        </div>
         <div class="preloader-logo">
-            <img src="pks-creative-studio-logo.svg" alt="">
+            <img src="./assets/svg/pks-creative-studio-logo.svg" alt="">
         </div>
         <div class="preloader-spinner"></div>
     </div>
@@ -901,7 +37,7 @@
         <div class="container">
             <a class="navbar-brand" href="#" aria-label="Portfolio Home">
                 <div class="logo">
-                    <img src="pks-logo.svg" alt="">
+                    <img src="./assets/svg/pks-logo.svg" alt="">
                 </div>
             </a>
             <div class="navbar-collapse" id="navbarNav">
@@ -957,7 +93,7 @@
                             <article class="work-card scroll-animate">
                                 <a href="https://www.figma.com/proto/Jl8XlngXfNXmvmOYn5kchZ/The-EcoLink-UI?page-id=0%3A1&node-id=7-167&starting-point-node-id=7%3A167&t=kQDkvqbWpuegc8KG-1"
                                     target="_blank" rel="noopener noreferrer" class="work-thumbnail">
-                                    <img src="the-ecolink-poster.jpg"
+                                    <img src="./assets/images/the-ecolink-poster.jpg"
                                         alt="The Eco-Link Mobile App Design">
                                     <div class="play-icon">
                                         <i class="bi bi-play-fill"></i>
@@ -985,7 +121,7 @@
                             <article class="work-card scroll-animate">
                                 <a href="https://www.figma.com/proto/SpClrs9Z86FBxFvmwpELsj/Bob-Snail?page-id=0%3A1&node-id=1-10&t=9dtB1kue3sELN6bS-1"
                                     target="_blank" rel="noopener noreferrer" class="work-thumbnail">
-                                    <img src="bobsnail-poster.png" alt="BobSnail Webpage Image">
+                                    <img src="./assets/images/bobsnail-poster.png" alt="BobSnail Webpage Image">
                                     <div class="play-icon">
                                         <i class="bi bi-play-fill"></i>
                                     </div>
@@ -1014,7 +150,7 @@
                             <article class="work-card scroll-animate">
                                 <a href="https://www.figma.com/proto/bbFDZNSkMJkDvagnyAUQ22/Drooid?page-id=0%3A1&node-id=1-2&viewport=386%2C225%2C0.23&t=5lKoiTB2HlqhTsoA-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2"
                                     target="_blank" rel="noopener noreferrer" class="work-thumbnail">
-                                    <img src="drooid_social_poster_v001.png" alt="Drooid Social">
+                                    <img src="./assets/images/drooid_social_poster_v001.png" alt="Drooid Social">
                                     <div class="play-icon">
                                         <i class="bi bi-play-fill"></i>
                                     </div>
@@ -1038,7 +174,7 @@
                             <article class="work-card scroll-animate">
                                 <a href="https://www.figma.com/proto/Yj9nvhueWTGTTruaSDtGUF/hobfit_mobile_UI?page-id=0%3A1&node-id=9-2&viewport=671%2C146%2C0.24&t=4YGLOimDMkZVGmzq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9%3A2"
                                     target="_blank" rel="noopener noreferrer" class="work-thumbnail">
-                                    <img src="hobfit_poster_v001.png" alt="Fitness App Design">
+                                    <img src="./assets/images/hobfit_poster_v001.png" alt="Fitness App Design">
                                     <div class="play-icon">
                                         <i class="bi bi-play-fill"></i>
                                     </div>
@@ -1127,17 +263,17 @@
                 </div>
             </section>
         </div>
-          <!-- Resume Page -->
+        <!-- Resume Page -->
         <div class="page" id="resume">
             <section class="about-section">
                 <div class="container">
                     <div class="about-content scroll-animate">
                         <h2 class="about-title">Resume</h2>
-                        
+
                         <!-- Resume PDF Viewer -->
                         <div class="resume-viewer">
                             <!-- Replace with your actual PDF URL -->
-                            <iframe src="Pranay_UI_UX.pdf" type="application/pdf"></iframe>
+                            <iframe src="./assets/pdf/Pranay_UI_UX.pdf" type="application/pdf"></iframe>
                             <!-- If PDF doesn't show, use this placeholder -->
                             <!-- <div class="resume-placeholder">
                                 <i class="bi bi-file-earmark-pdf"></i>
@@ -1145,10 +281,11 @@
                                 <p>Add your resume PDF path in the iframe src</p>
                             </div> -->
                         </div>
-                        
+
                         <!-- Download Button -->
                         <div class="resume-actions">
-                            <a href="Pranay_UI_UX.pdf" download="Pranay_Kawle_Resume.pdf" class="resume-btn">
+                            <a href="./assets/pdf/Pranay_UI_UX.pdf" download="Pranay_Kawle_Resume.pdf"
+                                class="resume-btn">
                                 <i class="bi bi-download"></i>
                                 Download Resume
                             </a>
@@ -1156,8 +293,8 @@
                     </div>
                 </div>
             </section>
-        </div> 
-       <!-- More Page -->
+        </div>
+        <!-- More Page -->
         <div class="page" id="more">
             <section class="more-section">
                 <div class="container">
@@ -1213,7 +350,8 @@
                             </div>
                             <h3 class="extra-title">Awards</h3>
                             <p class="extra-description">
-                                Winner of UXthon Hackathon 2025, conducted by Tata Strive, for delivering a user-centered design solution..
+                                Winner of UXthon Hackathon 2025, conducted by Tata Strive, for delivering a
+                                user-centered design solution..
                             </p>
                         </article>
                         <article class="extra-card scroll-animate">
@@ -1256,27 +394,27 @@
                 <!-- Right: Social & QR -->
                 <div style="display: flex; align-items: center; gap: 2rem;">
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/pranaykawle/" class="social-link" aria-label="LinkedIn" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/pranaykawle/" class="social-link" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-linkedin"></i>
                         </a>
                         <a href="https://bento.me/pranaykawle" class="social-link" aria-label="Bento" target="_blank"
                             rel="noopener noreferrer">
                             <i class="bi bi-dribbble"></i>
                         </a>
-                        <a href="https://www.behance.net/pranaykawle" class="social-link" aria-label="Behance" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://www.behance.net/pranaykawle" class="social-link" aria-label="Behance"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-behance"></i>
                         </a>
-                        <a href="https://www.instagram.com/pks_creative_studio/" class="social-link" aria-label="Instagram" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/pks_creative_studio/" class="social-link"
+                            aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-instagram"></i>
                         </a>
                     </div>
 
                     <div class="qr-section">
-                        <div class="qr-code" title="Scan to chat on WhatsApp">                            
-                                <img src="qr_whatsapp_v001.jpeg" alt="qr-code">                           
+                        <div class="qr-code" title="Scan to chat on WhatsApp">
+                            <img src="./assets/images/qr_whatsapp_v001.jpeg" alt="qr-code">
                         </div>
                         <div class="qr-text">
                             Scan for<br>WhatsApp
@@ -1295,80 +433,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+    <!--Preloader Script -->
     <script>
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        /* ==================== PRELOADER CONTROL ==================== */
-        setTimeout(function () {
-            $('.preloader').addClass('hidden');
-            $('body').removeClass('loading');
-        }, 400); // 400ml seconds  preloader      
-    });
-</script>
-<script>
-             $(document).ready(function () {
-            // Smooth scroll animation observer
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all scroll-animate elements
-            $('.scroll-animate').each(function () {
-                observer.observe(this);
-            });
-
-            // Page navigation
-            $('.nav-link').on('click', function (e) {
-                e.preventDefault();
-
-                const pageId = $(this).data('page');
-
-                // Update active nav link
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-
-                // Show corresponding page
-                $('.page').removeClass('active');
-                $(`#${pageId}`).addClass('active');
-
-                // Scroll to top smoothly
-                $('html, body').animate({ scrollTop: 0 }, 600);
-
-                // Re-observe elements on new page
-                setTimeout(function () {
-                    $('.scroll-animate').each(function () {
-                        observer.observe(this);
-                    });
-                }, 100);
-            });
-
-            // Add parallax effect to hero section
-            $(window).on('scroll', function () {
-                const scrolled = $(window).scrollTop();
-                $('.hero-section').css('transform', 'translateY(' + (scrolled * 0.3) + 'px)');
-            });
-
-            // Smooth hover effects for work cards
-            $('.work-card').hover(
-                function () {
-                    $(this).css('transform', 'translateY(-10px)');
-                },
-                function () {
-                    $(this).css('transform', 'translateY(0)');
-                }
-            );
-        });  
-</script>
+            /* ==================== PRELOADER CONTROL ==================== */
+            setTimeout(function () {
+                $('.preloader').addClass('hidden');
+                $('body').removeClass('loading');
+            }, 400); // 400ml seconds  preloader      
+        });
+    </script>
 </body>
 
 </html>
